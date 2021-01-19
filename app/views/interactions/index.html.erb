@@ -1,0 +1,37 @@
+
+<% if user_signed_in? %>
+
+<h1>Interactions <%= link_to 'New Interaction', new_interaction_path, class:"btn btn-success" %> </h1> 
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Relationship</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interactions.each do |interaction| %>
+      <% if interaction.user == current_user %>
+      <tr>
+        <td><%= link_to interaction.first_name + " " + interaction.last_name, interaction %></td>
+        <td><%= interaction.date %></td>
+        <td><%= interaction.relationship %></td>
+        <td><%= link_to 'Delete', interaction, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%else %>
+<h1>Hello World</h1>
+Ruby Page Dude
+
+<%end%>
+

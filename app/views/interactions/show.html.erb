@@ -1,0 +1,14 @@
+
+<div class="jumbotron">
+  <h1 class="display-4">  <%= @interaction.first_name %> <%= @interaction.last_name %>
+ </h1>
+  <p class="lead">Interaction Date:   <%= @interaction.date %>
+</p>
+  <hr class="my-4">
+  <p>Relationship:   <%= @interaction.relationship %>
+</p>
+<%= link_to 'Edit', edit_interaction_path(@interaction), class:"btn btn-info" %>
+<%= link_to 'Home', interactions_path, class:"btn btn-info" %>
+<%= link_to 'Delete', interactions_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+</div>
+

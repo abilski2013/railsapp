@@ -1,0 +1,6 @@
+<h1>Editing Interaction</h1>
+
+<%= render 'form', interaction: @interaction %>
+<br>
+<%= link_to 'Show', @interaction, class:"btn btn-info" %>
+<%= link_to 'Delete', @interaction, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>

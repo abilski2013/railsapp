@@ -1,0 +1,51 @@
+
+<%= form_with(model: interaction) do |form| %>
+  <% if interaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interaction.errors.count, "error") %> prohibited this interaction from being saved:</h2>
+
+      <ul>
+        <% interaction.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+
+<div class="card">
+  <div class="card-header">
+<h4>Enter Below</h4>
+    </div>
+  <div class="card-body">
+  <div class="field form-group">
+    <% form.label :first_name %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name"  %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :relationship %>
+    <%= form.text_field :relationship, class:"form-control", placeholder:"Relationship"  %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :date %>
+    <%= form.date_select :date%>
+  </div>
+
+ <div class="field form-group">
+    <%= form.number_field :user_id, id: :interaction_user_id, class:"form-control", value:current_user.id, type: :hidden%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-success'%>
+  </div>
+<% end %>
+
+
+ </div>
+</div>
